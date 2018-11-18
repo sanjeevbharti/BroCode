@@ -1,0 +1,67 @@
+body {
+    background-color: #455357;
+}
+
+.big-title {
+    height: 400px;
+    color: #fff;
+}
+
+.operations .btn {
+    min-width: 80px;
+}
+
+.operations > div {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.brocode-main-container {
+    background-color: #CFD8DC;
+    padding-bottom: 10px;
+}
+
+.brocode-finding img {
+    display: block;
+    margin: 0 auto;
+}
+
+.progress {
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.carousel-inner > .carousel-item > img {
+    margin: 0 auto;
+    max-height: 280px;
+}
+
+.carousel-inner {
+    height: 280px;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+    height: 30px;
+    width: 30px;
+}
+
+.match-info .match-info__similarity {
+    text-align: center;
+    font-weight: 600;
+}
+
+.match-info__similarity_label {
+    text-align: right;
+    margin-top: 7px;
+    font-weight: 700;
+}
+
+.match-info .field-value {
+    font-size: 25px;
+    font-weight: 1000;
+}
+
+.matching .operations {
+    text-align: center;
+}

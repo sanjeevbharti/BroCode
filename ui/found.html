@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+
+    <title>Found</title>
+</head>
+<body>
+
+<div class="container">
+    <a href="home.html" class="mt-4 btn btn-info" role="button">Back to Home</a>
+    <div class="d-flex justify-content-center">
+        <div style="width: 300px">
+            <div style="height: 600px" class="d-flex align-items-center">
+                <img id="image" class="img-fluid" src="img/profile_men_woman.svg" alt="your image"/>
+            </div>
+            <form id="upload-form" action="found/upload" method="post" enctype="multipart/form-data">
+                <div class="messages"></div>
+                <div class="form-row">
+                    <div class="custom-file col-9">
+                        <input type="file" name="file" class="custom-file-input" id="imageFile" onchange="loadPic(this)"
+                               accept="image/*" required>
+                        <label class="custom-file-label" for="imageFile">Choose file...</label>
+                    </div>
+                    <div class="col"></div>
+                    <button type="submit" class="col btn btn-primary">Upload</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="scripts/jquery/jquery.min.js"></script>
+<script src="scripts/popper.js/umd/popper.min.js"></script>
+<script src="scripts/bootstrap/bootstrap.min.js"></script>
+<script src="scripts/main.js"></script>
+
+<script>
+    function loadPic(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#image').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $(function () {
+        $('#upload-form').on('submit', function (e) {
+            if (!e.isDefaultPrevented()) {
+                var url = "found/upload";
+                var form = $('#upload-form')[0];
+                var data = new FormData(form);
+                $.ajax({
+                    type: "POST",
+                    enctype: 'multipart/form-data',
+                    processData: false,
+                    contentType: false,
+                    url: url,
+                    accepts: {
+                        text: "text/plain"
+                    },
+                    data: data,
+                    success: function (fileName) {
+                        var messageText = 'Image successfully submitted. File name is ' + fileName;
+                        var alertBox = '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
+                        if (fileName) {
+                            $('#upload-form').find('.messages').html(alertBox);
+                            $('#upload-form')[0].reset();
+                        }
+                    }
+                });
+            }
+            return false;
+        })
+    });
+</script>
+</body>
+</html>

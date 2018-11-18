@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <title>Matching</title>
+</head>
+<body class="matching">
+    <ul class="nav justify-content-left">
+        <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+        </li>
+    </ul>
+    <div class="brocode-main-container container">
+        <h5>I am Lost</h5>
+        <!-- found people image -->
+        <div class="brocode-finding row">
+            <div class="col col-12 col-sm-12">
+                <div id="losts" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <div class="carousel-inner" role="listbox">
+                    </div>
+                    <a class="carousel-control-prev" href="#losts" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#losts" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <h5>You Found Me</h5>
+        <div class="row match-info"><!-- matched people information -->
+            <div class="col col-12 col-sm-12">
+                <div class="row">
+                    <div class="col col-2 col-sm-2 match-info__similarity_label"><span class="field-name">Similarity: </span></div>
+                    <div class="col col-8 col-sm-8 match-info__similarity">
+                        <div class="progress">
+                            <div class="progress-bar field-value" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
+                                <span class="similarity"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-2 col-sm-2"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-sm-12"><!-- Matched missing people images -->
+                <div id="matches" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <div class="carousel-inner" role="listbox">
+                    </div>
+                    <a class="carousel-control-prev" href="#matches" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#matches" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row operations"> <!-- Confirm button -->
+            <div class="col col-12 col-sm-12 align-items-center">
+                <button id="confirmMatched" type="button" class="btn btn-primary" data-toggle="modal" data-target="#thanksModal">Confirm</button>
+            </div>
+        </div>
+
+        <!-- Thanks Modal -->
+        <div class="modal fade" id="thanksModal" tabindex="-1" role="dialog" aria-labelledby="thanksModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="thanksModalTitle">Thank You</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    Thanks for helping us to find out this missing kid.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="closeThanksModal" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="scripts/jquery/jquery.min.js"></script>
+    <script src="scripts/popper.js/umd/popper.min.js"></script>
+    <script src="scripts/bootstrap/bootstrap.min.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
